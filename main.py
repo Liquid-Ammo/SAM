@@ -30,15 +30,15 @@ generation_config
 safety_settings
 
 while True:
-    user_input = str(input("You :"))
-    gemini = genai.GenerativeModel(model_name=model)
+  user_input = str(input("You :"))
+  gemini = genai.GenerativeModel(model_name=model)
 
-    chat = gemini.start_chat(history=contents)
+  chat = gemini.start_chat(history=contents)
 
-    response = chat.send_message(user_input, stream=stream)
+  response = chat.send_message(user_input, stream=stream)
 
-    print((response.text))
+  print((response.text))
 
-    response.prompt_feedback
+  response.prompt_feedback
 
-    response.candidates
+  response.candidates
