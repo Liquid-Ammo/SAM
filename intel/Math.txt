@@ -1,0 +1,13 @@
+Chapter 1 Relations and Functions
+Chapter 2 Inverse Trigonometric Functions
+Chapter 3 Matrices
+Chapter 4 Determinants
+Chapter 5 Continuity and Differentiability
+Chapter 6 Applications of Derivatives
+Chapter 7 Integrals
+Chapter 8 Applications of Integrals
+Chapter 9 Differential Equations
+Chapter 10 Vector Algebra
+Chapter 11 Three dimensional Geometry
+Chapter 12 Linear Programming
+Chapter 13 Probability

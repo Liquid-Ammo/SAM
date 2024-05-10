@@ -1,11 +1,13 @@
 import google.generativeai as genai
 import json
 import base64
+from manage import combine, topic, save
 import pathlib
 import pprint
 import requests
 import mimetypes
 
+# Set your API key
 API_KEY = "AIzaSyDb6snPbG15Rk8_8zlBAf1N1AlSMolS2Uk"
 
 # Configure the client library by providing your API key.
@@ -30,15 +32,53 @@ generation_config
 safety_settings
 
 while True:
-  user_input = str(input("You :"))
+  print("SAM : Smart Artificial Male")
+  print()
+  us_in1=int(input("""Select Subject : 
+  1)Mathematics
+  2)Physics
+  3)Chemistry
+  4)Biology
+  """))
+  print()
+  asd=topic(us_in1)
+  a=str("Select Chapter :\n "+asd+ "\n")
+  us_in2=int(input(a))
+  print()
+  us_in3=int(input("""Request : 
+  1)Questions with answers 
+  2)Notes
+  3)Summary
+  4)All
+  """))  
+  print()
+  ven=asd.split("\n")
+  chap=ven[us_in2-1]
+
+  cha=""
+  run=False 
+  j=0
+  for i in chap:
+    if i.isdigit():
+      run=True
+    if run:
+      if i.isdigit():
+        continue
+      if j<1:
+        j+=1
+      else:
+        cha+=str(i)
+  
+  user_input=str(combine(cha,us_in3))
+  
   gemini = genai.GenerativeModel(model_name=model)
-
   chat = gemini.start_chat(history=contents)
-
   response = chat.send_message(user_input, stream=stream)
 
-  print((response.text))
-
+  
+  a=response.text
+  print(a)
+  save(a,cha,us_in3)
+  
   response.prompt_feedback
-
   response.candidates
