@@ -32,53 +32,63 @@ generation_config
 safety_settings
 
 while True:
-  print("SAM : Smart Artificial Male")
-  print()
-  us_in1=int(input("""Select Subject : 
+    print("SAM : Smart Artificial Male")
+    print()
+    us_in1 = int(
+        input(
+            """Select Subject : 
   1)Mathematics
   2)Physics
   3)Chemistry
   4)Biology
-  """))
-  print()
-  asd=topic(us_in1)
-  a=str("Select Chapter :\n "+asd+ "\n")
-  us_in2=int(input(a))
-  print()
-  us_in3=int(input("""Request : 
+  """
+        )
+    )
+    print()
+    asd = topic(us_in1)
+    a = str("Select Chapter :\n " + asd + "\n")
+    us_in2 = int(input(a))
+    print()
+    us_in3 = int(
+        input(
+            """Request : 
   1)Questions with answers 
   2)Notes
   3)Summary
   4)All
-  """))  
-  print()
-  ven=asd.split("\n")
-  chap=ven[us_in2-1]
+  """
+        )
+    )
+    print()
+    ven = asd.split("\n")
+    chap = ven[us_in2 - 1]
 
-  cha=""
-  run=False 
-  j=0
-  for i in chap:
-    if i.isdigit():
-      run=True
-    if run:
-      if i.isdigit():
-        continue
-      if j<1:
-        j+=1
-      else:
-        cha+=str(i)
-  
-  user_input=str(combine(cha,us_in3))
-  
-  gemini = genai.GenerativeModel(model_name=model)
-  chat = gemini.start_chat(history=contents)
-  response = chat.send_message(user_input, stream=stream)
+    cha = ""
+    run = False
+    j = 0
+    for i in chap:
+        if i.isdigit():
+            run = True
+        if run:
+            if i.isdigit():
+                continue
+            if j < 1:
+                j += 1
+            else:
+                cha += str(i)
 
-  
-  a=response.text
-  print(a)
-  save(a,cha,us_in3)
-  
-  response.prompt_feedback
-  response.candidates
+    user_input = str(combine(cha, us_in3))
+
+    gemini = genai.GenerativeModel(model_name=model)
+    chat = gemini.start_chat(history=contents)
+    response = chat.send_message(user_input, stream=stream)
+
+    a = response.text
+    print(a)
+    save(a, cha, us_in3)
+
+    response.prompt_feedback
+    response.candidates
+    a = str("Press enter to continue : ")
+    if a != "":
+        break
