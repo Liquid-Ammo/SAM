@@ -25,12 +25,6 @@ safety_settings = json.loads(base64.b64decode(safety_settings_b64))
 user_input = base64.b64decode(user_input_b64).decode()
 stream = False
 
-contents
-
-generation_config
-
-safety_settings
-
 while True:
     print("SAM : Smart Artificial Male")
     print()
