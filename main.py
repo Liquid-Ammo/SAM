@@ -8,7 +8,7 @@ import requests
 import mimetypes
 
 
-def chatbot():
+def chatbot(us_in1,us_in2,us_in3,us_in4=0):
 
   # Set your API key
   API_KEY = "AIzaSyDb6snPbG15Rk8_8zlBAf1N1AlSMolS2Uk"
@@ -28,7 +28,7 @@ def chatbot():
   user_input = base64.b64decode(user_input_b64).decode()
   stream = False
 
-  while True:
+  if True:
       print("SAM : Smart Artificial Male")
       print()
       us_in1 = int(
@@ -87,5 +87,5 @@ def chatbot():
       response.prompt_feedback
       response.candidates
       a = str("Press enter to continue : ")
-      if a != "":
-          break
+
+

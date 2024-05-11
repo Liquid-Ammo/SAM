@@ -15,14 +15,20 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/generate_paper', methods=['POST'])
+@app.route('/input', methods=['POST'])
 def generate_paper():
-    subject = request.form['subject']
-    chapter = request.form['chapter']
-    question_type = request.form['question_type']
+  subject = request.form['subject']
+    
+  
+
+  
+
+  
+  chapter = request.form['chapter']
+  question_type = request.form['question_type']
     # Call the question paper generator function with the inputs
-    question_paper = chatbot(subject, chapter, question_type)
-    return render_template('paper.html', question_paper=question_paper)
+    #question_paper = chatbot(subject, chapter, question_type)
+  return render_template('paper.html', question_paper=question_paper)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+  app.run(host="0.0.0.0", port=8080)

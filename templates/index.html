@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Form</title>
+</head>
+<body>
+
+<form id="myForm">
+  <label for="firstField">First Field:</label>
+  <select id="firstField" onchange="updateSecondField()">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+    <option value="option4">Option 4</option>
+  </select>
+
+  <label for="secondField">Second Field:</label>
+  <select id="secondField">
+    <!-- Options will be populated dynamically using JavaScript -->
+  </select>
+</form>
+
+<script>
+  
+function updateSecondField() {
+  var firstFieldValue = document.getElementById("firstField").value;
+  var secondField = document.getElementById("secondField");
+
+  // Clear existing options
+  secondField.innerHTML = "";
+
+  // Populate options based on first field value
+  if (firstFieldValue === "option1") {
+    var option1Values = ["Chapter 1 Relations and Functions", "Chapter 2 Inverse Trigonometric Functions", "Chapter 3 Matrices", "Chapter 4 Determinants", "Chapter 5 Continuity and Differentiability", "Chapter 6 Applications of Derivatives", "Chapter 7 Integrals", "Chapter 8 Applications of Integrals", "Chapter 9 Differential Equations", "Chapter 10 Vector Algebra", "Chapter 11 Three dimensional Geometry", "Chapter 12 Linear Programming", "Chapter 13 Probability"];
+    populateOptions(option1Values);
+  } else if (firstFieldValue === "option2") {
+    var option2Values =["Chapter 1 Electric Charges and Fields", "Chapter 2 Electrostatic Potential and Capacitance", "Chapter 3 Current Electricity", "Chapter 4 Moving Charges and Magnetism", "Chapter 5 Magnetism and Matter", "Chapter 6 Electromagnetic Induction", "Chapter 7 Alternating Current", "Chapter 8 Electromagnetic Waves", "Chapter 9 Ray Optics and Optical Instruments", "Chapter 10 Wave Optics", "Chapter 11 Dual Nature of Radiation and Matter", "Chapter 12 Atoms", "Chapter 13 Nuclei", "Chapter 14 Semiconductor Electronics :Materials, Devices and Simple Circuits"];
+    populateOptions(option2Values);
+  } else if (firstFieldValue === "option3") {
+    var option3Values =["Chapter 1 Solutions", "Chapter 2 Electrochemistry", "Chapter 3 Chemical Kinetics", "Chapter 4 The d & f Block Elements", "Chapter 5 Coordination Compounds", "Chapter 6 Haloalkanes and Haloarenes", "Chapter 7 Alcohols, Phenols, and Ethers", "Chapter 8 Aldehydes, Ketones, and Carboxylic Acids", "Chapter 9 Amines", "Chapter 10 Biomolecules"];
+    populateOptions(option3Values);
+  } else if (firstFieldValue === "option4") {
+    var option4Values = ["Chapter 1 Sexual Reproduction in Flowering Plants", "Chapter 2 Human Reproduction", "Chapter 3 Reproductive Health", "Chapter 4 Principles of Inheritance and Variation", "Chapter 5 Molecular Basis of Inheritance", "Chapter 6 Evolution", "Chapter 7 Human Health and Diseases", "Chapter 8 Microbes in Human Welfare", "Chapter 9 Biotechnology Principles and Processes", "Chapter 10 Biotechnology and Its Application", "Chapter 11 Organisms and Populations", "Chapter 12 Ecosystem", "Chapter 13 Biodiversity and Conservation"];
+    populateOptions(option4Values);
+  }
+}
+
+function populateOptions(options) {
+  var secondField = document.getElementById("secondField");
+  options.forEach(function(option) {
+    var optionElement = document.createElement("option");
+    optionElement.textContent = option;
+    secondField.appendChild(optionElement);
+  });
+}
+
+// Initialize second field options based on default value of first field
+updateSecondField();
+</script>
+
+</body>
+</html>

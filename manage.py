@@ -7,7 +7,10 @@ def topic(x):
       a = open("intel/Chem.txt", "r")
   elif x == 4:
       a = open("intel/Bio.txt", "r")
+  else:
+      a = open("intel/Math.txt", "r")
   b = a.read()
+  b=b.split("\n")
   return b
 
 
