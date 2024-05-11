@@ -1,14 +1,12 @@
 def topic(x):
-  if x == 1:
+  if x == "option1":
       a = open("intel/Math.txt", "r")
-  elif x == 2:
+  elif x == "option2":
       a = open("intel/Phy.txt", "r")
-  elif x == 3:
+  elif x == "option3":
       a = open("intel/Chem.txt", "r")
-  elif x == 4:
+  elif x == "option4":
       a = open("intel/Bio.txt", "r")
-  else:
-      a = open("intel/Math.txt", "r")
   b = a.read()
   b=b.split("\n")
   return b
@@ -16,13 +14,13 @@ def topic(x):
 
 def combine(cha, rep):
 
-  if rep == 1:
+  if rep == "option1":
       rep = "Questions with answers"
-  elif rep == 2:
+  elif rep == "option2":
       rep = "Notes"
-  elif rep == 3:
+  elif rep == "option3":
       rep = "Summary"
-  elif rep == 4:
+  elif rep == "option4":
       rep = "All"
 
   vfr = str("Genterate " + rep + " of " + cha)
@@ -31,12 +29,13 @@ def combine(cha, rep):
 
 
 def save(a, filename, rep):
-  if rep == 1:
+  if rep == "option1":
       de = "Qna/"
-  elif rep == 2:
+  elif rep == "option2":
       de = "Notes/"
-  elif rep == 3:
+  elif rep == "option3":
       de = "Summary/"
   x = "Output/" + de + filename + ".txt"
   z = open(x, "w")
   z.write(a)
+  z.close()

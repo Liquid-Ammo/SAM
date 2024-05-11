@@ -7,21 +7,28 @@
 </head>
 <body>
 
-<form id="myForm">
-  <label for="firstField">First Field:</label>
-  <select id="firstField" onchange="updateSecondField()">
-    <option value="option1">Option 1</option>
-    <option value="option2">Option 2</option>
-    <option value="option3">Option 3</option>
-    <option value="option4">Option 4</option>
-  </select>
+<form action="/input" method="POST">
+  <label for="firstField">Subject : </label>
+  <select id="firstField" name ='firstField' onchange="updateSecondField()">
+    <option value="option1">Mathematics</option>
+    <option value="option2">Physics</option>
+    <option value="option3">Chemistry</option>
+    <option value="option4">Biology</option>
+  </select><br></br>
 
-  <label for="secondField">Second Field:</label>
-  <select id="secondField">
-    <!-- Options will be populated dynamically using JavaScript -->
-  </select>
+  <label for="secondField">Chapter : </label>
+  <select id="secondField" name='secondField'>
+  </select><br></br>
+
+  <label for="thirdField">Request : </label>
+  <select id="thirdField" name="thirdField">
+      <option value="option1">Questions with Answer</option>
+      <option value="option2">Summary</option>
+      <option value="option3">Notes</option>
+    </select><br></br>
+  <input type="submit" value="Generate">
 </form>
-
+  <a bg-color="orange">{{ out }}</a>
 <script>
   
 function updateSecondField() {
@@ -56,9 +63,7 @@ function populateOptions(options) {
   });
 }
 
-// Initialize second field options based on default value of first field
 updateSecondField();
 </script>
-
 </body>
 </html>
