@@ -22,7 +22,13 @@ def Generate():
     chapter = request.form['secondField']
     question_type = request.form['thirdField']
     output=chatbot(subject,chapter,question_type)
-    return render_template('index.html',out=output)
+    out1=""
+    for i in output:
+      if i !="\n":
+        out1+=i
+      else:
+        out1+="<p>"
+    return render_template('index.html',out=out1)
 
 if __name__ == '__main__':
-  app.run(host="0.0.0.0", port=80)
+  app.run(host="0.0.0.0", port=3000)
