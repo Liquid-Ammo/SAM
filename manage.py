@@ -17,9 +17,9 @@ def combine(cha, rep):
     if rep == "option1":
         rep = "Questions with answers"
     elif rep == "option2":
-        rep = "Notes"
+        rep = "MCQ"
     elif rep == "option3":
-        rep = "Summary"
+        rep = "Points"
     elif rep == "option4":
         rep = "All"
 
@@ -32,9 +32,9 @@ def save(a, filename, rep):
     if rep == "option1":
         de = "Qna/"
     elif rep == "option2":
-        de = "Notes/"
+        de = "MCQ/"
     elif rep == "option3":
-        de = "Summary/"
+        de = "Points/"
     filenam = ""
     for i in filename:
         if i != " ":
